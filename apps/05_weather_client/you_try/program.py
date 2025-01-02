@@ -1,3 +1,8 @@
+import collections
+
+#Named tuples
+Location = collections.namedtuple('Location','city state country')
+
 def main():
     # show the header
     show_header()
@@ -7,8 +12,8 @@ def main():
     print(f"You selected {location_text}")
 
     # Convert plaintext over to data we can use
-    city, state, country = convert_plaintext_location(location_text)
-    print(city, state , country)
+    loc = convert_plaintext_location(location_text)
+    print(loc)
 
     # Get the report from the API
 
@@ -43,7 +48,10 @@ def convert_plaintext_location(location_text):
     else:
         return None
     # print(f"City={city}, State={state}, Country={country}")
-    return city, state, country
+    # return city, state, country
+    # t2 = Location(city,state,country)
+    # print(f"city = {t2.city}  state = {t2.state} country = {t2.country}")
+    return Location(city,state,country)
 
 
 
